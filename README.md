@@ -15,7 +15,7 @@ Installation
 ```java
 git clone git@github.com:josealvarezmuguerza/log-msg-sender.git
 cd log-msg-sender
-mvn clean package
+mvn assembly:assembly
 
 ```
 
