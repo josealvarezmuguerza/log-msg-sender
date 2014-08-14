@@ -46,6 +46,31 @@ ie:  1004 - 5 -  "another log entry"  - 127.0.0.1
 
 ```
 
+###log4j.properties
+
+Update this file in order to change the appender to use. In the bellow configuration, the 3 appenders are activated:
+
+```java
+log4j.rootLogger = INFO, stdout, file, flume
+
+# Define the file appender
+log4j.appender.file=org.apache.log4j.FileAppender
+log4j.appender.file.File=messages.log
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+
+# Define the console appender
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+# Define the flume appender
+log4j.appender.flume = org.apache.flume.clients.log4jappender.Log4jAppender
+log4j.appender.flume.Hostname = 127.0.0.1
+log4j.appender.flume.Port = 4141
+log4j.appender.flume.layout=org.apache.log4j.PatternLayout
+
+```
+
 
 License
 =======
